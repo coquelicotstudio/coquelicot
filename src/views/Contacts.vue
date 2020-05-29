@@ -10,19 +10,16 @@
                 </div> -->
                 <div class="column is-half">
                     <h1 class="title">
-                      About
+                      Contacts
                     </h1>
                     <p>
-                    <b>coquelicot</b> is a project by Chiara Fedele, architect and illustrator
-                    based in Genoa, Italy.</p>
-                    <p>
-                    Her work is foucsed on <b>botanical</b> illustration, <b>architectural</b>
-                    drawings and imaginary landscapes.
-                    Her style is inspired by the collage technique and uses broad, flat
-                    patches of <b>color</b>.
+                        <strong>Email - </strong>
+                        <a href="mailto:coqillustra@gmail.com">coqillustra@gmail.com</a>
                     </p>
-                    <p>Her favourite language is French.</p>
-
+                    <p>
+                        <strong>Instagram - </strong>
+                        <a href="https://www.instagram.com/coquelicot_illustration/">@coquelicot_illustration</a>
+                    </p>
                 </div>
             </div>
 

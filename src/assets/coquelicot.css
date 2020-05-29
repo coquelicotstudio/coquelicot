@@ -5,101 +5,13 @@
     animation-fill-mode: both;
 }
 
-@keyframes idle1 {
-  0% {
-    transform:rotate(84deg) translate(-8px, -37px);
-
-  }
-  10% {
-    transform:rotate(90deg) translate(-8px, -37px);
-
-  }
-  50% {
-    transform:rotate(84deg) translate(-8px, -37px);
-  }
-  60% {
-    transform:rotate(80deg) translate(-8px, -37px);
-
-  }
-  100% {
-    transform: rotate(84deg) translate(-8px, -37px);
-  }
+.animated {
+    -webkit-animation-duration: 0.3s;
+    -webkit-animation-fill-mode: both;
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
 }
 
-@keyframes idle2 {
-  0% {
-    transform:translate(34px, 34px);
-
-  }
-  25% {
-    transform:scale(1.1, 1.1) translate(34px, 34px);
-
-  }
-  60% {
-    transform:rotate(2deg) skew(5deg) translate(34px, 34px);
-
-  }
-  100% {
-    transform:translate(34px, 34px);
-  }
-}
-
-@keyframes idle4 {
-  0% {
-    transform:translate(52px, 22px);
-
-  }
-  25% {
-    transform:scale(0.9, 0.9) translate(52px, 22px);
-
-  }
-  60% {
-    transform:rotate(-2deg) translate(52px, 22px);
-
-  }
-  100% {
-    transform:translate(52px, 22px);
-  }
-}
-
-@keyframes idle3 {
-  0% {
-    transform:rotate(90deg) translate(-104px, -119px);
-
-  }
-  40% {
-    transform:rotate(92deg) translate(-102px, -120px);
-
-  }
-  50% {
-    transform:rotate(90deg) translate(-104px, -119px);
-  }
-  70% {
-    transform:rotate(87deg) translate(-106px, -118px);
-
-  }
-  100% {
-    transform: rotate(90deg) translate(-104px, -119px);
-  }
-}
-
-@keyframes idle5 {
-  0% {
-    transform: rotate(-29deg) translate(-110px, 28px);
-
-  }
-  40% {
-    transform:rotate(-33deg) translate(-110px, 28px);
-
-  }
-  50% {
-    transform:rotate(-24deg) translate(-110px, 28px);
-  }
-  70% {
-    transform:rotate(-29deg) translate(-110px, 28px);
-
-  }
-  100% {
-    transform:rotate(-29deg) translate(-110px, 28px);
-  }
+.is-underlined {
+    text-decoration: underline;
 }

@@ -9,7 +9,23 @@
                     </figure>
                 </div> -->
                 <div class="column is-half has-text-centered">
-                    Site in construction
+                    <div class="card">
+                      <div class="card-content">
+                        <p class="title">
+                          “Site in construction :)”
+                        </p>
+                        <p class="subtitle">
+                         The coquelicot  dev team
+                        </p>
+                      </div>
+                      <footer class="card-footer">
+                        <p class="card-footer-item">
+                          <span>
+                            28-03-2020, 18:36
+                          </span>
+                        </p>
+                      </footer>
+                    </div>
                 </div>
             </div>
 

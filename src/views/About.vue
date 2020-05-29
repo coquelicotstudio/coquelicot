@@ -13,7 +13,7 @@
                     <b>coquelicot</b> is a project by Chiara Fedele, architect and illustrator
                     based in Genoa, Italy.</p>
                     <p>
-                    Her work is foucsed on <b>botanical</b> illustration, <b>architectural</b>
+                    Her work is focused on <b>botanical</b> illustration, <b>architectural</b>
                     drawings and imaginary landscapes.
                     Her style is inspired by the collage technique and uses broad, flat
                     patches of <b>color</b>.

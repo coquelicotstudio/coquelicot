@@ -8,7 +8,9 @@
                         <img src="./../assets/images/COQ_LOGO_C.jpg" alt="">
                     </figure>
                 </div> -->
-                Site in construction
+                <div class="column is-half has-text-centered">
+                    Site in construction
+                </div>
             </div>
 
         </div>

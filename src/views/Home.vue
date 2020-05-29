@@ -1,14 +1,13 @@
 <template>
-    <section class="hero">
+    <section class="hero" style="height:100vh;">
       <div class="hero-body">
         <div class="container">
             <div class="columns is-centered animated fadeInUp">
-                <!-- <div class="column is-3">
+                <div class="column">
                     <figure class="image">
-                        <img src="./../assets/images/COQ_LOGO_C.jpg" alt="">
+                        <img src="./../assets/images/pietraligure-VWTMP.jpg" alt="">
                     </figure>
-                </div> -->
-                Site in construction
+                </div>
             </div>
 
         </div>

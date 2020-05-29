@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+/* HOW TO with sass-cli:
+** set your theme variables and update bulma's global variables in mystyles.scss
+** cd to static/plugin_bulma
+** $ sass --no-source-map sass\mystyles.scss:css\ee-bulma.css
+** if you want to make a lot of changes and need to see them in real time
+** $ sass --watch --no-source-map sass\mystyles.scss:css\ee-bulma.css
+*/
+
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
+// Set your brand variables
+
+$coq: hsl(37,78,90);
+$coq_text: rgb(26, 26, 26);
+$coq_text_strong: rgb(5, 5, 5);
+// Update Bulma's global variables
+
+
+$text: $coq_text;
+$text-strong :$coq_text_strong;
+
+$size-1: 7rem;
+
+$custom-colors: (
+  "coq": ($coq),
+  "printer":($coq_text)
+);
+
+// Import only what you need from Bulma (import everything cause I say so)
+@import "../bulma-0.8.0/bulma.sass";

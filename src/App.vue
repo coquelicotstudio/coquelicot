@@ -21,8 +21,12 @@
               </p>
           </div>
           <div class="level-item has-text-centered">
-                <!-- <img src="./assets/coq-logos/logo-medium.png" style="height:42px;"> -->
-                <p class="is-size-2" style="font-family: bodoniflfbold">coquelicot</p>
+              <router-link
+                  to="/"
+                  exact-active-class="has-text-dark is-underlined"
+                  class="has-text-grey">
+                  <img src="./assets/images/coquelicot.png" style="height:42px;">
+              </router-link>
         </div>
           <div class="level-right is-hidden-mobile">
               <p class="level-item">

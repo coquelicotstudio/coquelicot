@@ -9,9 +9,6 @@
                     </figure>
                 </div> -->
                 <div class="column is-half">
-                    <h1 class="title">
-                      Contacts
-                    </h1>
                     <p>
                         <strong>Email - </strong>
                         <a href="mailto:coqillustra@gmail.com">coqillustra@gmail.com</a>

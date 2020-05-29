@@ -9,9 +9,6 @@
                     </figure>
                 </div> -->
                 <div class="column is-half">
-                    <h1 class="title">
-                      About
-                    </h1>
                     <p>
                     <b>coquelicot</b> is a project by Chiara Fedele, architect and illustrator
                     based in Genoa, Italy.</p>

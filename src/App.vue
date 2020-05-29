@@ -21,7 +21,8 @@
               </p>
           </div>
           <div class="level-item has-text-centered">
-                <img src="./assets/coq-logos/logo-medium.png" style="height:42px;">
+                <!-- <img src="./assets/coq-logos/logo-medium.png" style="height:42px;"> -->
+                <p class="is-size-2" style="font-family: bodoniflfbold">coquelicot</p>
         </div>
           <div class="level-right is-hidden-mobile">
               <p class="level-item">

@@ -92,9 +92,20 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'App',
+  data() {
+    return {
+
+    };
+  },
+};
+</script>
+
 
 <style>
 @import "./assets/coq-font/stylesheet.css";
 @import "./assets/coquelicot.css";
-@import "./assets/bulma-c.css";
+@import "./assets/coquelicot-bulma/bulma-c.css";
 </style>

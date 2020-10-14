@@ -1,3 +1,6 @@
 [submodule "src/assets/coquelicot-bulma"]
 	path = src/assets/coquelicot-bulma
 	url = https://github.com/coquelicotstudio/coquelicot-bulma.git
+[submodule "src/assets/coquelicot-posts"]
+	path = src/assets/coquelicot-posts
+	url = https://github.com/coquelicotstudio/coquelicot-posts.git

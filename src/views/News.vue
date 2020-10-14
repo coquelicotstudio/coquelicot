@@ -12,7 +12,7 @@
                     <div class="card">
                       <div class="card-content">
                         <p class="title">
-                          “Site in construction :)”
+                          “Working on it”
                         </p>
                         <p class="subtitle">
                          The coquelicot  dev team
@@ -21,7 +21,7 @@
                       <footer class="card-footer">
                         <p class="card-footer-item">
                           <span>
-                            28-03-2020, 18:36
+                            14 Oct 2020
                           </span>
                         </p>
                       </footer>

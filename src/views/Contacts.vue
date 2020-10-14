@@ -15,7 +15,7 @@
                     </p>
                     <p>
                         <strong>Instagram - </strong>
-                        <a href="https://www.instagram.com/coquelicot_studio/">@coquelicot_illustration</a>
+                        <a href="https://www.instagram.com/coquelicot_studio/">@coquelicot_studio</a>
                     </p>
                 </div>
             </div>

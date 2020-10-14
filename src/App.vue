@@ -97,7 +97,7 @@ export default {
   name: 'App',
   data() {
     return {
-
+      test: 'test',
     };
   },
 };

@@ -5,9 +5,9 @@
               <p class="level-item">
                   <strong>
                     <router-link
-                        to="/"
+                        to="/works/all"
                         exact-active-class="has-text-dark is-underlined"
-                        class="has-text-grey">Work</router-link>
+                        class="has-text-grey">Works</router-link>
                   </strong>
               </p>
               <p class="level-item">

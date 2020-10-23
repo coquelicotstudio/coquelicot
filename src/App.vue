@@ -1,6 +1,13 @@
 <template>
   <div id="app">
-      <nav class="level animated fadeIn" style="padding:15px;">
+      <nav class="level animated fadeIn" style="
+          padding: 15px;
+          margin: 0px;
+          width: 100%;
+          position: fixed;
+          z-index: 100;
+          background-color: white;"
+        >
           <div class="level-left is-hidden-mobile">
               <p class="level-item">
                   <strong>

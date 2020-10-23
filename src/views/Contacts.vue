@@ -1,6 +1,6 @@
 <template>
     <section class="hero">
-      <div class="hero-body">
+      <div class="hero-body" style="margin-top:20px;">
         <div class="container">
             <div class="columns is-centered animated fadeInUp">
                 <!-- <div class="column is-3">

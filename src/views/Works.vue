@@ -1,13 +1,14 @@
 <template>
     <section class="hero" style="height:100vh;">
-      <div class="hero-body">
+      <div class="hero-body" style="margin-top:20px;">
         <div class="container">
             <div class="columns is-centered animated fadeInUp">
-                <div class="column">
-                    <div v-if="$route.params.title !== 'all'" class="content animated fadeIn">
-                      <span v-html="html"></span>
+                  <div v-if="$route.params.title !== 'all'" class="column is-8">
+                    <div class="content animated fadeIn">
+                    <span v-html="html"></span>
                     </div>
-                    <div v-else class="">
+                  </div>
+                  <div v-else class="column">
                       <div class="columns is-multiline is-marginless">
                         <router-link
                           v-for="w in works"
@@ -16,8 +17,7 @@
                           class="column">{{w.title}}
                           </router-link>
                       </div>
-                    </div>
-                </div>
+                  </div>
             </div>
         </div>
       </div>
@@ -46,8 +46,13 @@ export default {
           .get(`../coquelicot-posts/works/${root.$route.params.title}.md`)
           .then((resp) => {
             /* ./coquelicot-posts/images/ */
-            console.log(resp.data);
-            root.html = root.md.render(resp.data);
+            const el = document.createElement('html');
+            el.innerHTML = root.md.render(resp.data);
+            const images = el.getElementsByTagName('img');
+            for (let img = 0; img < images.length; img += 1) {
+              images[img].src = `/coquelicot-posts/images/${images[img].src.match(/.*\/(.*)/)[1]}`;
+            }
+            root.html = el.innerHTML;
           });
       } else {
         this.axios

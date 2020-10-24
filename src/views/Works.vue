@@ -3,7 +3,9 @@
       <div class="hero-body" style="margin-top:70px;">
         <div class="container">
             <div class="columns is-centered">
-                  <div v-if="$route.params.title !== 'all'" class="column is-8">
+                  <div v-if="$route.params.title !== 'all'"
+                  class="column is-8 has-background-white"
+                  >
                     <div class="content animated fadeInUp">
                     <span v-html="html"></span>
                     </div>
@@ -14,8 +16,11 @@
                           v-for="w in works"
                           :key="w.title"
                           :to="'/works/'+w.title"
-                          class="column">{{w.title}}
-                          <img :src="'/coquelicot-posts/images/'+w.preview" alt="">
+                          class="column is-3">
+                          <div class="image has-shadow">
+                            <img :src="'/coquelicot-posts/images/'+w.preview" alt="">
+                            <span class="prev-label is-size-4">{{w.title}}</span>
+                          </div>
                           </router-link>
                       </div>
                   </div>
@@ -81,7 +86,39 @@ export default {
 };
 </script>
 <style media="screen">
+
+    .image .prev-label{
+      transition: all 0.3 ease;
+      position: absolute;
+      width: 0px;
+      top: 20px;
+      font-family: bodoniflfbold;
+      padding: 5px;
+      left: 0;
+      color: black;
+      background: white;
+      border-radius: 0;
+      visibility: hidden;
+  }
+  .prev-label:hover{
+    visibility:visible;
+
+  }
+  .image:hover .prev-label{
+    visibility: visible;
+    width:auto;
+  }
+
   div.content img {
-    box-shadow: 0px 2px 3px 2px #00000085;
+    box-shadow: 2px 3px 3px 0px #00000020;
+  }
+
+  div.content h1 {
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .has-shadow img {
+    box-shadow: 2px 3px 3px 0px #00000057;
   }
 </style>

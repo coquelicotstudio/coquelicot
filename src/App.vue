@@ -128,4 +128,11 @@ export default {
 .magic-title:hover{
   transform: scale(1.1);
 }
+.hero-body{
+  background: antiquewhite;
+}
+
+.level{
+  background-color: antiquewhite !important;
+}
 </style>

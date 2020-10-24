@@ -1,6 +1,6 @@
 <template>
     <section class="hero">
-      <div class="hero-body" style="margin-top:20px;">
+      <div class="hero-body" style="margin-top:70px;">
         <div class="container">
             <div class="columns is-centered animated fadeInUp">
                 <!-- <div class="column is-3">
@@ -8,7 +8,7 @@
                         <img src="./../assets/images/COQ_LOGO_C.jpg" alt="">
                     </figure>
                 </div> -->
-                <div class="column is-half">
+                <div class="column has-text-centered is-half">
                     <p>
                         <strong>Email - </strong>
                         <a href="mailto:coqillustra@gmail.com">coqillustra@gmail.com</a>

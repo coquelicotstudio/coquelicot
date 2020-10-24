@@ -1,10 +1,10 @@
 <template>
     <section class="hero" style="height:100vh;">
-      <div class="hero-body" style="margin-top:20px;">
+      <div class="hero-body" style="margin-top:70px;">
         <div class="container">
-            <div class="columns is-centered animated fadeInUp">
+            <div class="columns is-centered">
                   <div v-if="$route.params.title !== 'all'" class="column is-8">
-                    <div class="content animated fadeIn">
+                    <div class="content animated fadeInUp">
                     <span v-html="html"></span>
                     </div>
                   </div>
@@ -15,6 +15,7 @@
                           :key="w.title"
                           :to="'/works/'+w.title"
                           class="column">{{w.title}}
+                          <img :src="'/coquelicot-posts/images/'+w.preview" alt="">
                           </router-link>
                       </div>
                   </div>
@@ -25,7 +26,6 @@
 </template>
 <script>
 // import work from '@/components/work.vue';
-
 export default {
   name: 'Works',
   props: [],
@@ -55,8 +55,10 @@ export default {
             root.html = el.innerHTML;
           });
       } else {
+        const date = new Date();
+        const t = date.getTime();
         this.axios
-          .get('../coquelicot-posts/blog.json')
+          .get(`../coquelicot-posts/blog.json?t=${t}`)
           .then((resp) => {
             root.works = Object.values(resp.data.entries).filter((el) => el.type === 'works');
           });
@@ -78,3 +80,8 @@ export default {
   },
 };
 </script>
+<style media="screen">
+  div.content img {
+    box-shadow: 0px 2px 3px 2px #00000085;
+  }
+</style>

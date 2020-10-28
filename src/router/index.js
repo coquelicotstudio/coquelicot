@@ -11,6 +11,11 @@ const routes = [
     component: Home,
   },
   {
+    path: '/works/:title',
+    name: 'Works',
+    component: () => import('../views/Works.vue'),
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting
@@ -21,17 +26,18 @@ const routes = [
   {
     path: '/news',
     name: 'News',
-    component: () => import(/* webpackChunkName: "news" */ '../views/News.vue'),
+    component: () => import('../views/News.vue'),
   },
   {
     path: '/contacts',
     name: 'Contacts',
-    component: () => import(/* webpackChunkName: "news" */ '../views/Contacts.vue'),
+    component: () => import('../views/Contacts.vue'),
   },
 ];
 
 const router = new VueRouter({
   routes,
+  mode: 'history',
 });
 
 export default router;

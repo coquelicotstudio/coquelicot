@@ -4,7 +4,7 @@
         <div class="container">
             <div class="columns is-centered animated fadeInUp">
                 <div class="column">
-                    <figure class="image">
+                    <figure v-if="home_image" class="image">
                         <img :src="home_image" alt="">
                     </figure>
                 </div>
@@ -33,7 +33,10 @@ export default {
       .then((resp) => {
         console.log(resp.data.home.image.split('public'));
         [root.rest, root.home_image] = resp.data.home.image.split('public');
-      });
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   },
   components: {
 

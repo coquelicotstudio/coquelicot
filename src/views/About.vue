@@ -1,5 +1,5 @@
 <template>
-    <section class="hero">
+    <section class="hero is-fullheight">
       <div class="hero-body" style="margin-top:70px;">
         <div class="container">
             <div class="columns is-centered animated fadeInUp">

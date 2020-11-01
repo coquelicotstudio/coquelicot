@@ -31,12 +31,8 @@ export default {
     this.axios
       .get(`../coquelicot-posts/blog.json?t=${t}`)
       .then((resp) => {
-        console.log(resp.data.home.image.split('public'));
         [root.rest, root.home_image] = resp.data.home.image.split('public');
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+      });
   },
   components: {
 

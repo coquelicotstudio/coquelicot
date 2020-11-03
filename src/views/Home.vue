@@ -28,11 +28,6 @@ export default {
       rest: '',
     };
   },
-  created() {
-    if (this.$route.query) {
-      this.$router.push(`${this.$route.query.v}/${this.$route.query.p}`);
-    }
-  },
   mounted() {
     const root = this;
     const date = new Date();

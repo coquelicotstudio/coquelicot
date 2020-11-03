@@ -2,5 +2,4 @@
 
 Static site
 
-
-cmon
+For static blogging

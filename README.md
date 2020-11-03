@@ -2,6 +2,4 @@
 
 Static site
 
-cmon
-
 

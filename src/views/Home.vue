@@ -5,7 +5,7 @@
             <div class="columns is-centered animated fadeInUp">
                 <div class="column">
                     <figure v-if="home_image" class="image">
-                        <img :src="home_image" alt="" syle="
+                        <img :src="home_image" alt="" style="
                         max-height: calc(100vh - 167px);
                         width: auto;
                         margin: auto;"

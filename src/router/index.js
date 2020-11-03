@@ -33,6 +33,11 @@ const routes = [
     name: 'Contacts',
     component: () => import('../views/Contacts.vue'),
   },
+  {
+    path: '*',
+    name: 'not-found',
+    component: () => import('../views/Notfound.vue'),
+  },
 ];
 
 const router = new VueRouter({

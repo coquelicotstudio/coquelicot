@@ -1,6 +1,6 @@
 <template>
     <section class="hero is-fullheight">
-      <div class="hero-body" style="margin-top:70px;">
+      <div class="hero-body" style="margin-top: 70px;align-items: flex-start;">
         <div class="container">
             <div class="columns is-centered animated fadeInUp">
                 <!-- <div class="column is-3">

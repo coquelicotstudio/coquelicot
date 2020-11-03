@@ -5,7 +5,11 @@
             <div class="columns is-centered animated fadeInUp">
                 <div class="column">
                     <figure v-if="home_image" class="image">
-                        <img :src="home_image" alt="">
+                        <img :src="home_image" alt="" syle="
+                        max-height: calc(100vh - 167px);
+                        width: auto;
+                        margin: auto;"
+                        >
                     </figure>
                 </div>
             </div>
@@ -23,6 +27,11 @@ export default {
       home_image: '',
       rest: '',
     };
+  },
+  created() {
+    if (this.$route.query) {
+      this.$router.push(`${this.$route.query.v}/${this.$route.query.p}`);
+    }
   },
   mounted() {
     const root = this;

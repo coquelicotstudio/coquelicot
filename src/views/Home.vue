@@ -31,7 +31,7 @@ export default {
     this.axios
       .get(`../coquelicot-posts/blog.json?t=${t}`)
       .then((resp) => {
-        root.home_image = '/coquelicot-posts/' + resp.data.home.image
+        root.home_image = `/coquelicot-posts/images/${resp.data.home.image}`;
       });
   },
   components: {

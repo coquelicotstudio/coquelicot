@@ -1,5 +1,5 @@
 # coquelicot
 
-Static site for coquelicot.studio
+Static site
 
 

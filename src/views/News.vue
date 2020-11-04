@@ -9,10 +9,10 @@
                     </figure>
                 </div> -->
                 <div class="column is-9 has-text-centered">
-                  <article v-for="(n, i) in news" :key="i" :class="{
+                  <article v-for="(n, i) in news_filtered" :key="i" :class="{
                     'media box animated':true,
-                    'fadeInLeft':i%2,
-                    'fadeInRight':!i%2
+                    'fadeInUp':i%2,
+                    'fadeInDown':!(i%2)
                     }">
                     <figure class="media-left">
                       <p v-if="n.preview" class="image is-128x128">
@@ -26,7 +26,8 @@
                       <div class="content">
                         <h2 class="is-size-3" style="margin-bottom:0;">{{n.title}}</h2>
                         <p>
-                          <small>posted</small> <small class="has-text-info">today</small>
+                          <small>posted </small>
+                          <small class="has-text-info">{{when(n.created)}}</small>
                           <span v-html="n.html"></span>
                         </p>
                       </div>
@@ -48,7 +49,8 @@ export default {
   data() {
     return {
       news: [],
-      chunk: 0,
+      chunk_index: 3,
+      loaded: 0,
     };
   },
   mounted() {
@@ -61,11 +63,24 @@ export default {
     wmount();
   },
   methods: {
+    when(d) {
+      const days = Math.floor(
+        (new Date() - new Date(d)) / (1000 * 60 * 60 * 24),
+      );
+      let res;
+      if (days === 0) {
+        res = 'today';
+      } else if (days === 1) {
+        res = 'yesterday';
+      } else if (days > 1) {
+        res = `${days} days ago`;
+      }
+      return res;
+    },
     load_chunk() {
       const root = this;
-      for (let n = this.chunk; n <= (this.chunk + 3); n += 1) {
+      for (let n = this.loaded; n < (this.loaded + this.chunk_index); n += 1) {
         if (!root.news[n]) return;
-        this.chunk += 1;
         this.axios
           .get(`../coquelicot-posts/news/${root.news[n].title}.md`)
           .then((resp) => {
@@ -79,6 +94,7 @@ export default {
             root.$set(root.news[n], 'html', el.innerHTML);
           });
       }
+      this.loaded += this.chunk_index;
     },
     async start() {
       const date = new Date();
@@ -90,6 +106,11 @@ export default {
             .filter((el) => el.type === 'news')
             .sort((a, b) => new Date(b.created) - new Date(a.created)),
         );
+    },
+  },
+  computed: {
+    news_filtered() {
+      return this.news.filter((el, i) => i < this.loaded);
     },
   },
 };

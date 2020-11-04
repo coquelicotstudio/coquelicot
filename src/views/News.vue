@@ -12,7 +12,7 @@
                   <article class="media box">
                     <figure class="media-left">
                       <p class="image is-128x128">
-                        <img src="https://bulma.io/images/placeholders/128x128.png">
+                        <img src="./../assets/images/square-logo.jpg">
                       </p>
                     </figure>
                     <div class="media-content">

@@ -8,24 +8,30 @@
                         <img src="./../assets/images/COQ_LOGO_C.jpg" alt="">
                     </figure>
                 </div> -->
-                <div class="column is-half has-text-centered">
-                    <div class="card">
-                      <div class="card-content">
-                        <p class="title">
-                          “Working on it”
-                        </p>
-                        <p class="subtitle">
-                         The coquelicot  dev team
+                <div class="column is-9 has-text-centered">
+                  <article class="media box">
+                    <figure class="media-left">
+                      <p class="image is-128x128">
+                        <img src="https://bulma.io/images/placeholders/128x128.png">
+                      </p>
+                    </figure>
+                    <div class="media-content">
+                      <div class="content">
+                        <h2 class="is-size-3" style="margin-bottom:0;">Site up and running</h2>
+                        <p>
+                          <small>posted</small> <small class="has-text-info">today</small>
+                          <br>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                          Proin ornare magna eros,
+                          eu pellentesque
+                          tortor vestibulum ut. Maecenas non massa sem. Etiam
+                          finibus odio quis feugiat facilisis.
                         </p>
                       </div>
-                      <footer class="card-footer">
-                        <p class="card-footer-item">
-                          <span>
-                            14 Oct 2020
-                          </span>
-                        </p>
-                      </footer>
                     </div>
+                    <div class="media-right">
+                    </div>
+                  </article>
                 </div>
             </div>
 

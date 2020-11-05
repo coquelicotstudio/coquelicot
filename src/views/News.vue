@@ -8,49 +8,82 @@
                         <img src="./../assets/images/COQ_LOGO_C.jpg" alt="">
                     </figure>
                 </div> -->
-                <div class="column is-9 has-text-centered">
-                  <article v-for="(n, i) in news_filtered" :key="i" :class="{
-                    'media box animated':true,
-                    'fadeInUp':i%2,
-                    'fadeInDown':!(i%2)
-                    }">
-                    <figure class="media-left">
-                      <p v-if="n.preview" class="image is-128x128">
-                        <img :src="'/coquelicot-posts/images/'+n.preview">
-                      </p>
-                      <p v-else class="image is-128x128">
-                        <img src="./../assets/images/square-logo.jpg">
-                      </p>
-                    </figure>
-                    <div class="media-content">
-                      <div class="content">
-                        <h2 class="is-size-3" style="margin-bottom:0;">{{n.title}}</h2>
-                        <p>
-                          <small>posted </small>
-                          <small class="has-text-info">{{when(n.created)}}</small>
-                          <span v-html="n.html"></span>
+                <div
+                  class="column is-9 has-text-centered"
+                  style="overflow-y: auto; max-height: calc(4 * 128px + 4 * 2.5rem)"
+                  v-infinite-scroll="load_chunk"
+                  infinite-scroll-throttle-delay="200"
+                  >
+                  <div class="box"
+                  v-for="(n, i) in news_filtered"
+                  :key="i"
+                  >
+                    <article class="media animated fadeIn">
+                      <figure class="media-left">
+                        <p v-if="n.preview" class="image is-128x128">
+                          <img :src="'/coquelicot-posts/images/'+n.preview">
                         </p>
+                        <p v-else class="image is-128x128">
+                          <img src="./../assets/images/square-logo.jpg">
+                        </p>
+                      </figure>
+                      <div class="media-content">
+                        <div class="content">
+                          <h2 class="is-size-3" style="margin-bottom:0;">{{n.title}}</h2>
+                          <p>
+                            <small>posted </small>
+                            <small class="has-text-info">{{when(n.created)}}</small>
+                            <span v-html="n.html"></span>
+                          </p>
+                        </div>
                       </div>
+                      <div class="media-right">
+                      </div>
+                    </article>
+                  </div>
+                  <div class="spacer" style="height:5vh;">
+                    <div v-if="loaded < news.length" class="box">
+                      <article class="media animated fadeIn">
+                        <figure class="media-left">
+                          <p class="image is-128x128 has-background-light">
+                          </p>
+                        </figure>
+                        <div class="media-content">
+                          <div class="content">
+                            <h2 class="is-size-3 has-background-light has-text-light"
+                            style="margin-bottom:0;">Loadin</h2>
+                            <p>
+                              <small class="has-background-light has-text-light">posted </small>
+                              <small class="has-text-info"></small>
+                            </p>
+                          </div>
+                        </div>
+                        <div class="media-right">
+                        </div>
+                      </article>
                     </div>
-                    <div class="media-right">
-                    </div>
-                  </article>
+                    <p v-else>
+                      No more news to show!
+                    </p>
+                  </div>
                 </div>
             </div>
-
-        </div>
+            </div>
       </div>
     </section>
 </template>
 <script>
+
 export default {
   name: 'News',
   props: [],
   data() {
     return {
       news: [],
-      chunk_index: 3,
+      chunk_index: 4,
       loaded: 0,
+      loading: true,
+      load_cycles: 1,
     };
   },
   mounted() {
@@ -63,6 +96,9 @@ export default {
     wmount();
   },
   methods: {
+    test() {
+      console.log('test');
+    },
     when(d) {
       const days = Math.floor(
         (new Date() - new Date(d)) / (1000 * 60 * 60 * 24),
@@ -77,24 +113,47 @@ export default {
       }
       return res;
     },
+    loadmore() {
+      console.log('more', this.loaded);
+      this.loaded += 1;
+      const root = this;
+      this.axios
+        .get(`../coquelicot-posts/news/${root.news[root.loaded].title}.md`)
+        .then((resp) => {
+          /* ./coquelicot-posts/images/ */
+          const el = document.createElement('html');
+          el.innerHTML = root.md.render(resp.data);
+          // const images = el.getElementsByTagName('img');
+          // for (let img = 0; img < images.length; img += 1) {
+          //   images[img].src = `/coquelicot-posts/images/${images[img].src.match(/.*\/(.*)/)[1]}`;
+          // }
+          root.$set(root.news[root.loaded], 'html', el.innerHTML);
+        });
+    },
     load_chunk() {
       const root = this;
       for (let n = this.loaded; n < (this.loaded + this.chunk_index); n += 1) {
-        if (!root.news[n]) return;
+        if (!root.news[n]) {
+          return;
+        }
         this.axios
           .get(`../coquelicot-posts/news/${root.news[n].title}.md`)
           .then((resp) => {
             /* ./coquelicot-posts/images/ */
             const el = document.createElement('html');
             el.innerHTML = root.md.render(resp.data);
-            const images = el.getElementsByTagName('img');
-            for (let img = 0; img < images.length; img += 1) {
-              images[img].src = `/coquelicot-posts/images/${images[img].src.match(/.*\/(.*)/)[1]}`;
-            }
+            // const images = el.getElementsByTagName('img');
+            // for (let img = 0; img < images.length; img += 1) {
+            //   images[img].src = `/coquelicot-posts/images/${images[img]
+            // .src.match(/.*\/(.*)/)[1]}`;
+            // }
             root.$set(root.news[n], 'html', el.innerHTML);
+            console.log(n);
+            this.loaded += 1;
+            console.log(this.loaded, '<', this.news.length);
           });
+        console.log(this.loaded, '<', this.news.length);
       }
-      this.loaded += this.chunk_index;
     },
     async start() {
       const date = new Date();

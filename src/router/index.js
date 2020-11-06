@@ -24,9 +24,14 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
   },
   {
-    path: '/news',
-    name: 'News',
-    component: () => import('../views/News.vue'),
+    path: '/thoughts',
+    name: 'thoughts',
+    component: () => import('../views/Thoughts.vue'),
+  },
+  {
+    path: '/thoughts/:title',
+    name: 'thought',
+    component: () => import('../views/Thought.vue'),
   },
   {
     path: '/contacts',
@@ -34,9 +39,13 @@ const routes = [
     component: () => import('../views/Contacts.vue'),
   },
   {
-    path: '*',
-    name: 'not-found',
+    name: '404',
+    path: '/404',
     component: () => import('../views/Notfound.vue'),
+  },
+  {
+    path: '*',
+    redirect: '404',
   },
 ];
 

@@ -14,33 +14,8 @@
                   v-infinite-scroll="load_chunk"
                   infinite-scroll-throttle-delay="200"
                   >
-                  <div class="box"
-                  v-for="(n, i) in news_filtered"
-                  :key="i"
-                  >
-                    <article class="media animated fadeIn">
-                      <figure class="media-left">
-                        <p v-if="n.preview" class="image is-128x128">
-                          <img :src="'/coquelicot-posts/images/'+n.preview">
-                        </p>
-                        <p v-else class="image is-128x128">
-                          <img src="./../assets/images/square-logo.jpg">
-                        </p>
-                      </figure>
-                      <div class="media-content">
-                        <div class="content">
-                          <h2 class="is-size-3" style="margin-bottom:0;">{{n.title}}</h2>
-                          <p>
-                            <small>posted </small>
-                            <small class="has-text-info">{{when(n.created)}}</small>
-                            <span v-html="n.html"></span>
-                          </p>
-                        </div>
-                      </div>
-                      <div class="media-right">
-                      </div>
-                    </article>
-                  </div>
+                  <Singlenews v-for="(n, i) in news_filtered"
+                  :key="i" :news="n"></Singlenews>
                   <div class="spacer" style="height:5vh;">
                     <div v-if="loaded < news.length" class="box">
                       <article class="media animated fadeIn">
@@ -74,8 +49,10 @@
 </template>
 <script>
 
+import Singlenews from '../components/Singlenews.vue';
+
 export default {
-  name: 'News',
+  name: 'Thoughts',
   props: [],
   data() {
     return {
@@ -90,7 +67,6 @@ export default {
     const root = this;
     async function wmount() {
       root.news = await root.start();
-      console.log(root.news);
       root.load_chunk();
     }
     wmount();
@@ -98,20 +74,6 @@ export default {
   methods: {
     test() {
       console.log('test');
-    },
-    when(d) {
-      const days = Math.floor(
-        (new Date() - new Date(d)) / (1000 * 60 * 60 * 24),
-      );
-      let res;
-      if (days === 0) {
-        res = 'today';
-      } else if (days === 1) {
-        res = 'yesterday';
-      } else if (days > 1) {
-        res = `${days} days ago`;
-      }
-      return res;
     },
     loadmore() {
       console.log('more', this.loaded);
@@ -150,20 +112,21 @@ export default {
             root.$set(root.news[n], 'html', el.innerHTML);
             console.log(n);
             this.loaded += 1;
-            console.log(this.loaded, '<', this.news.length);
           });
-        console.log(this.loaded, '<', this.news.length);
       }
     },
     async start() {
       const date = new Date();
       const t = date.getTime();
       return this.axios
-        .get(`../coquelicot-posts/blog.json?t=${t}`)
+        .get(`../coquelicot-posts/testblog.json?t=${t}`)
         .then(
-          (resp) => Object.values(resp.data.entries)
-            .filter((el) => el.type === 'news')
-            .sort((a, b) => new Date(b.created) - new Date(a.created)),
+          (resp) => {
+            console.log(resp.data);
+            return Object.values(resp.data.entries)
+              .filter((el) => el.type === 'news')
+              .sort((a, b) => new Date(b.created) - new Date(a.created));
+          },
         );
     },
   },
@@ -171,6 +134,9 @@ export default {
     news_filtered() {
       return this.news.filter((el, i) => i < this.loaded);
     },
+  },
+  components: {
+    Singlenews,
   },
 };
 </script>

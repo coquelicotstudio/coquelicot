@@ -21,10 +21,10 @@
               <p class="level-item">
                   <strong>
                       <router-link
-                      to="/news"
+                      to="/thoughts"
                       exact-active-class="has-text-dark is-underlined"
                       class="has-text-grey">
-                      News</router-link>
+                      Thoughts</router-link>
                   </strong>
               </p>
           </div>
@@ -71,10 +71,10 @@
                   <p class="level-item">
                       <strong>
                           <router-link
-                          to="/news"
+                          to="/thoughts"
                           exact-active-class="has-text-dark is-underlined"
                           class="has-text-grey">
-                          News</router-link>
+                          Thoughts</router-link>
                       </strong>
                   </p>
                   <p class="level-item">

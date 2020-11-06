@@ -13,12 +13,12 @@
                   <div v-else class="column">
                       <div class="columns is-multiline is-marginless">
                         <router-link
-                          v-for="w in works"
+                          v-for="(w, i) in works"
                           :key="w.title"
                           :to="'/works/'+w.title"
                           class="column is-3">
                           <div class="image has-shadow">
-                            <img :src="'/coquelicot-posts/images/'+w.preview" alt="">
+                            <img :src="`https://picsum.photos/${Math.round(Math.random()*(150 - 66) + 66)}/100?random=${w.title+i}`" alt="">
                             <span class="prev-label is-size-4">{{w.title}}</span>
                           </div>
                           </router-link>
@@ -58,12 +58,15 @@ export default {
               images[img].src = `/coquelicot-posts/images/${images[img].src.match(/.*\/(.*)/)[1]}`;
             }
             root.html = el.innerHTML;
+          })
+          .catch(() => {
+            this.$router.push({ name: '404' });
           });
       } else {
         const date = new Date();
         const t = date.getTime();
         this.axios
-          .get(`../coquelicot-posts/blog.json?t=${t}`)
+          .get(`../coquelicot-posts/testblog.json?t=${t}`)
           .then((resp) => {
             root.works = Object.values(resp.data.entries).filter((el) => el.type === 'works');
           });

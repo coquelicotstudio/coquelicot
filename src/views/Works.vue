@@ -1,29 +1,34 @@
 <template>
-    <section class="hero" style="height:100vh;">
+    <section class="hero is-coq" style="min-height: 100vh;">
       <div class="hero-body" style="margin-top:70px;">
         <div class="container">
             <div class="columns is-centered">
-                  <div v-if="$route.params.title !== 'all'"
-                  class="column is-8 has-background-white"
-                  >
-                    <div class="content animated fadeInUp">
-                    <span v-html="html"></span>
-                    </div>
-                  </div>
-                  <div v-else class="column">
-                      <div class="columns is-multiline is-marginless">
-                        <router-link
-                          v-for="(w, i) in works"
-                          :key="w.title"
-                          :to="'/works/'+w.title"
-                          class="column is-3">
-                          <div class="image has-shadow">
-                            <img :src="`https://picsum.photos/${Math.round(Math.random()*(150 - 66) + 66)}/100?random=${w.title+i}`" alt="">
-                            <span class="prev-label is-size-4">{{w.title}}</span>
-                          </div>
-                          </router-link>
+              <div class="column">
+                <div v-if="works.length === 0" class="content" style="text-align: center;">
+                  <p>No work to show yet!</p>
+                </div>
+                  <div class="columns is-multiline is-marginless">
+                    <template v-if="loading" >
+                      <div v-for="(i, k) in [1,1,1,1,1,1,1,1,1,1]" class="column is-3" :key="k">
+                        <div  class="image is-1by1 has-shadow has-background-light">
+                        </div>
                       </div>
+                    </template>
+                    <template v-else >
+                      <router-link
+                        v-for="w in works"
+                        :key="w.title"
+                        :to="'/works/'+w.title"
+                        class="column is-3">
+                        <div class="image has-shadow">
+                          <img v-if="w.preview" :src="'/coquelicot-posts/images/'+w.preview">
+                          <img v-else src=".././assets/images/square-logo.jpg">
+                          <span class="prev-label is-size-4">{{w.title}}</span>
+                        </div>
+                        </router-link>
+                    </template>
                   </div>
+              </div>
             </div>
         </div>
       </div>
@@ -38,39 +43,26 @@ export default {
     return {
       html: '',
       works: {},
+      loading: false,
     };
   },
   mounted() {
-    this.start();
+    const root = this;
+    async function wmount() {
+      root.works = await root.start();
+      root.loading = false;
+    }
+    wmount();
   },
   methods: {
-    start() {
-      const root = this;
-      if (this.$route.params.title !== 'all') {
-        this.axios
-          .get(`../coquelicot-posts/works/${root.$route.params.title}.md`)
-          .then((resp) => {
-            /* ./coquelicot-posts/images/ */
-            const el = document.createElement('html');
-            el.innerHTML = root.md.render(resp.data);
-            const images = el.getElementsByTagName('img');
-            for (let img = 0; img < images.length; img += 1) {
-              images[img].src = `/coquelicot-posts/images/${images[img].src.match(/.*\/(.*)/)[1]}`;
-            }
-            root.html = el.innerHTML;
-          })
-          .catch(() => {
-            this.$router.push({ name: '404' });
-          });
-      } else {
-        const date = new Date();
-        const t = date.getTime();
-        this.axios
-          .get(`../coquelicot-posts/testblog.json?t=${t}`)
-          .then((resp) => {
-            root.works = Object.values(resp.data.entries).filter((el) => el.type === 'works');
-          });
-      }
+    async start() {
+      const date = new Date();
+      const t = date.getTime();
+      return this.axios
+        .get(`../coquelicot-posts/blog.json?t=${t}`)
+        .then((resp) => Object.values(resp.data.entries)
+          .filter((el) => el.type === 'works')
+          .sort((a, b) => new Date(b.created) - new Date(a.created)));
     },
   },
   components: {
@@ -114,11 +106,6 @@ export default {
 
   div.content img {
     box-shadow: 2px 3px 3px 0px #00000020;
-  }
-
-  div.content h1 {
-    text-align: center;
-    text-transform: uppercase;
   }
 
   .has-shadow img {

@@ -13,7 +13,7 @@
               <p class="level-item">
                   <strong>
                     <router-link
-                        to="/works/all"
+                        to="/works"
                         exact-active-class="has-text-dark is-underlined"
                         class="has-text-grey">Works</router-link>
                   </strong>
@@ -128,9 +128,9 @@ export default {
 .magic-title:hover{
   transform: scale(1.1);
 }
-.hero-body{
+/* .hero-body{
   background: antiquewhite;
-}
+} */
 
 .coq-nav{
   background-color: antiquewhite !important;

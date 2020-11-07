@@ -1,5 +1,5 @@
 <template lang="html">
-  <section class="hero is-fullheight">
+  <section class="hero is-coq is-fullheight">
     <div class="hero-body" style="margin-top: 70px;align-items: flex-start;">
       <div class="container">
           <div class="columns is-centered animated fadeInUp">
@@ -34,7 +34,7 @@ export default {
     const t = date.getTime();
     const root = this;
     this.axios
-      .get(`../coquelicot-posts/testblog.json?t=${t}`)
+      .get(`../coquelicot-posts/blog.json?t=${t}`)
       .then(
         (resp) => {
           if (!resp.data.entries[this.$route.params.title]) {
@@ -48,7 +48,7 @@ export default {
         },
       );
     this.axios
-      .get(`../coquelicot-posts/news/${this.$route.params.title}.md`)
+      .get(`../coquelicot-posts/thoughts/${this.$route.params.title}.md`)
       .then((resp) => {
         /* ./coquelicot-posts/images/ */
         const el = document.createElement('html');

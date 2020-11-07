@@ -1,5 +1,5 @@
 <template>
-    <section class="hero is-fullheight">
+    <section class="hero is-coq is-fullheight">
       <div class="hero-body" style="margin-top: 70px;align-items: flex-start;">
         <div class="container">
             <div class="columns is-centered">
@@ -38,7 +38,7 @@
                       </article>
                     </div>
                     <p v-else>
-                      No more news to show!
+                      No more thoughts to show!
                     </p>
                   </div>
                 </div>
@@ -75,23 +75,6 @@ export default {
     test() {
       console.log('test');
     },
-    loadmore() {
-      console.log('more', this.loaded);
-      this.loaded += 1;
-      const root = this;
-      this.axios
-        .get(`../coquelicot-posts/news/${root.news[root.loaded].title}.md`)
-        .then((resp) => {
-          /* ./coquelicot-posts/images/ */
-          const el = document.createElement('html');
-          el.innerHTML = root.md.render(resp.data);
-          // const images = el.getElementsByTagName('img');
-          // for (let img = 0; img < images.length; img += 1) {
-          //   images[img].src = `/coquelicot-posts/images/${images[img].src.match(/.*\/(.*)/)[1]}`;
-          // }
-          root.$set(root.news[root.loaded], 'html', el.innerHTML);
-        });
-    },
     load_chunk() {
       const root = this;
       for (let n = this.loaded; n < (this.loaded + this.chunk_index); n += 1) {
@@ -99,18 +82,21 @@ export default {
           return;
         }
         this.axios
-          .get(`../coquelicot-posts/news/${root.news[n].title}.md`)
+          .get(`../coquelicot-posts/thoughts/${root.news[n].title}.md`)
           .then((resp) => {
             /* ./coquelicot-posts/images/ */
             const el = document.createElement('html');
             el.innerHTML = root.md.render(resp.data);
-            // const images = el.getElementsByTagName('img');
-            // for (let img = 0; img < images.length; img += 1) {
-            //   images[img].src = `/coquelicot-posts/images/${images[img]
-            // .src.match(/.*\/(.*)/)[1]}`;
-            // }
+            const images = el.getElementsByTagName('img');
+            for (let img = 0; img < images.length; img += 1) {
+              images[img].src = `/coquelicot-posts/images/${images[img].src.match(/.*\/(.*)/)[1]}`;
+            }
             root.$set(root.news[n], 'html', el.innerHTML);
             console.log(n);
+            this.loaded += 1;
+          })
+          .catch(() => {
+            root.$set(root.news[n], 'html', '<p>post not found!</p>');
             this.loaded += 1;
           });
       }
@@ -119,12 +105,12 @@ export default {
       const date = new Date();
       const t = date.getTime();
       return this.axios
-        .get(`../coquelicot-posts/testblog.json?t=${t}`)
+        .get(`../coquelicot-posts/blog.json?t=${t}`)
         .then(
           (resp) => {
             console.log(resp.data);
             return Object.values(resp.data.entries)
-              .filter((el) => el.type === 'news')
+              .filter((el) => el.type === 'works')
               .sort((a, b) => new Date(b.created) - new Date(a.created));
           },
         );

@@ -1,5 +1,5 @@
 <template>
-    <section class="hero is-fullheight">
+    <section class="hero is-coq is-fullheight">
       <div class="hero-body" style="margin-top: 70px;align-items: flex-start;">
         <div class="container">
             <div class="columns is-centered animated fadeInUp">

@@ -63,7 +63,7 @@
                   <p class="level-item">
                       <strong>
                         <router-link
-                            to="/works/all"
+                            to="/works"
                             exact-active-class="has-text-dark is-underlined"
                             class="has-text-grey">Work</router-link>
                       </strong>

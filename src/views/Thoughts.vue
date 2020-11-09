@@ -45,6 +45,15 @@
             </div>
             </div>
       </div>
+      <div class="hero-foot has-background-coq"
+        style="box-shadow: rgba(0, 0, 0, 0.18) 0px -2px 8px;">
+        <div class="section" style="padding:0.8rem; text-align:right">
+          <p class="is-size-7">
+            <strong>coquelicot</strong> © 2020 -
+          developed by <a href="https://github.com/fdrcslv">fdrcslv</a>
+          </p>
+        </div>
+      </div>
     </section>
 </template>
 <script>
@@ -110,7 +119,7 @@ export default {
           (resp) => {
             console.log(resp.data);
             return Object.values(resp.data.entries)
-              .filter((el) => el.type === 'works')
+              .filter((el) => el.type === 'thoughts')
               .sort((a, b) => new Date(b.created) - new Date(a.created));
           },
         );

@@ -10,11 +10,17 @@
                 </div> -->
                 <div class="column is-half">
                     <p>
-                    <b>coquelicot</b> è un progetto di Chiara Fedele, architetto e illustratrice calabrese laureata presso la Scuola Politecnica di Genova.</p>
-                    <p>L’ispirazione per i suoi lavori proviene da due fonti: la passione per i grandi nomi dell’<i>industrial design</i> del Novecento
-                    e la fascinazione per la natura e la botanica, in particolare se legata ai paesaggi della sua infanzia. 
-                    Il suo stile sintetico nelle forme e dalle grandi macchie di colore richiama la tecnica del collage e il disegno architettonico. 
-                    Ha collaborato con diversi studi di architettura, curato immagine di prodotto per associazioni ed eventi, e costruito allestimenti 
+                    <b>coquelicot</b> è un progetto di Chiara Fedele, architetto
+                    e illustratrice calabrese laureata presso la Scuola Politecnica di Genova.</p>
+                    <p>L’ispirazione per i suoi lavori proviene da due fonti: la passione per
+                     i grandi nomi dell’<i>industrial design</i> del Novecento
+                    e la fascinazione per la natura e la botanica, in particolare se
+                    legata ai paesaggi della sua infanzia.
+                    Il suo stile sintetico nelle forme e dalle grandi macchie di colore
+                    richiama la tecnica del collage e il disegno architettonico.
+                    Ha collaborato con diversi studi di architettura,
+                    curato immagine di prodotto per associazioni ed eventi,
+                    e costruito allestimenti
                     nel laboratorio di un fabbro. </p>
                     <p>La sua lingua preferita è il Francese.</p>
 

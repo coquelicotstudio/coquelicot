@@ -1,6 +1,6 @@
 # Saligione
 
-![enter image description here](cqlct_IG_20200730_sea19.jpeg)
+![enter image description here](cqlct_IG_20200730_sea19.jpg)
 
 Nel mio paese natìo, in Calabria, c'è un'antica e forte tradizione di pesca del pesce azzurro, soprattutto acciughe. Nelle notti senza luna, le *lampare* si avviano verso il mare aperto e aspettano che le loro luci attraggano banchi di acciughe. *Lampara* significa infatti letteralmente *lampada* e per estensione del termine, queste particolari imbarcazioni sono chiamate allo stesso modo.
 

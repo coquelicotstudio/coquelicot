@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-      <nav class="level coq-nav animated fadeInDown" style="
+      <nav class="level has-background-coq animated fadeInDown" style="
           padding: 15px;
           margin: 0px;
           width: 100%;
@@ -132,7 +132,4 @@ export default {
   background: antiquewhite;
 } */
 
-.coq-nav{
-  background-color: antiquewhite !important;
-}
 </style>

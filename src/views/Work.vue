@@ -1,9 +1,9 @@
 <template>
-    <section class="hero" style="height:100vh;">
+    <section class="hero is-coq" style="height:100vh;">
       <div class="hero-body" style="margin-top:70px;">
         <div class="container">
             <div class="columns is-centered">
-                <div class="column is-8 has-background-white">
+                <div class="column is-8">
                   <div v-html="html" class="content special-title animated fadeInUp">
                   </div>
                 </div>

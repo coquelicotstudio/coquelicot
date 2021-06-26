@@ -1,6 +1,6 @@
 <template>
     <section class="hero is-coq" style="height:100vh;">
-      <div class="hero-body" style="margin-top:70px;">
+      <div class="hero-body has-background-coq" style="margin-top:70px;">
         <div class="container">
             <div class="columns is-centered">
                 <div class="column is-8">

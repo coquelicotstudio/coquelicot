@@ -2,6 +2,7 @@
     <section class="hero is-coq is-fullheight" style="height:100vh;">
       <div class="hero-body" style="margin-top:70px;">
         <div class="container">
+          <router-link to="/works">
             <div class="columns is-centered animated fadeInUp">
                 <div class="column">
                     <figure v-if="home_image" class="image">
@@ -13,6 +14,7 @@
                     </figure>
                 </div>
             </div>
+          </router-link>
         </div>
       </div>
       <div class="hero-foot has-background-coq"

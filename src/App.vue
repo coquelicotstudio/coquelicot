@@ -115,7 +115,6 @@ export default {
 };
 </script>
 
-
 <style>
 @import "./assets/coq-font/stylesheet.css";
 @import "./assets/coquelicot.css";

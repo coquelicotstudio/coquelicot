@@ -20,7 +20,7 @@
                     <div class="image has-shadow">
                       <div
                         v-show="!w.loaded"
-                        class="image has-shadow has-background-light animated"
+                        class="image has-shadow coq-outlined animated"
                         :style="{height: randomInteger()+'vh', opacity: 0.6}"
                       >
                       </div>
@@ -80,7 +80,9 @@ export default {
       return Math.floor(Math.random() * (20 - 10 + 1)) + 10;
     },
     lo(i) {
-      Vue.set(this.works[i], 'loaded', true);
+      window.setTimeout(() => {
+        Vue.set(this.works[i], 'loaded', true);
+      }, 10000);
     },
     async start() {
       const date = new Date();
@@ -122,11 +124,13 @@ export default {
 };
 </script>
 <style media="screen">
-
+    .coq-outlined{
+      border: #1a1a1a dashed 1px;
+    }
     .image .prev-label{
-      transition: all 0.3s ease;
+      transition: all 0.1s ease;
       position: absolute;
-      width: 0;
+      width: auto;
       top: 20px;
       font-family: bodoniflfbold;
       padding: 5px;
@@ -135,6 +139,8 @@ export default {
       background: white;
       border-radius: 0;
       visibility: hidden;
+      opacity: 0;
+      transform-origin: left;
   }
   .prev-label:hover{
     visibility:visible;
@@ -142,7 +148,7 @@ export default {
   }
   .image:hover .prev-label{
     visibility: visible;
-    width:auto;
+    opacity: 1;
   }
 
   div.content img {

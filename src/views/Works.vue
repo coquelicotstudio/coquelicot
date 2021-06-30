@@ -80,9 +80,7 @@ export default {
       return Math.floor(Math.random() * (20 - 10 + 1)) + 10;
     },
     lo(i) {
-      window.setTimeout(() => {
-        Vue.set(this.works[i], 'loaded', true);
-      }, 10000);
+      Vue.set(this.works[i], 'loaded', true);
     },
     async start() {
       const date = new Date();

@@ -1,6 +1,3 @@
 # coquelicot
 
-Static site
-
-For static blogging
-sadcvkgdak
+Souce code for static site

@@ -1,5 +1,4 @@
 **CUCITO SU MISURA**
-![enter image description here](kaltern.jpg)
 Il grande momento di Cenerentola è indissolubilmente legato al favoloso cambio d’abito reso possibile dalla magia della Fata Madrina.
 
 Pur producendo risultati magici come quelli della Fata, la realtà della sartoria è invece fatta di un lavoro faticoso.

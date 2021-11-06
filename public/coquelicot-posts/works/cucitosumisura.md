@@ -17,7 +17,7 @@ Giocando con il tema dell’abito e rileggendolo attraverso la figura del vitico
 il cartamodello.
 
 Rispetto all’abito finito, il cartamodello comunica ancora di più il lavoro, la progettualità e la fatica legata alla produzione di un’opera artigianale. Un approccio apparentemente meno incantato, ma che è radicato nel sapere tecnico delle persone capaci di produrre magia.
-
+![enter image description here](kaltern.jpg)
   
   
 

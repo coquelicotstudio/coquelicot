@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "core-js": "^3.15.1",
     "isomorphic-git": "^1.8.3",
     "remarkable": "^2.0.1",

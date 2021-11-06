@@ -1,38 +1,46 @@
 <template>
     <section class="hero is-coq" style="min-height: 100vh;">
-      <div class="hero-body" style="margin-top:70px;">
-        <div class="container">
+      <template v-if="loading">
+        <Loader></Loader>
+      </template>
+      <template v-else>
+        <div class="hero-body" style="margin-top:70px;">
+          <div class="container">
             <div class="columns is-centered">
               <div class="column">
                 <div v-if="works.length === 0" class="content" style="text-align: center;">
                   <p>No work to show yet!</p>
                 </div>
-                  <div class="columns is-multiline is-marginless">
-                    <template v-if="loading" >
-                      <div v-for="(i, k) in [1,1,1,1,1,1,1,1,1,1]" class="column is-3" :key="k">
-                        <div  class="image is-1by1 has-shadow has-background-light">
-                        </div>
+                <div class="columns is-multiline is-marginless">
+                  <router-link
+                    v-for="(w, i) in works"
+                    :key="w.title"
+                    :to="'/works/'+ (w.title || w.linkedto)"
+                    class="column is-3">
+                    <div class="image has-shadow">
+                      <div
+                        v-show="!w.loaded"
+                        class="image has-shadow coq-outlined animated"
+                        :style="{height: randomInteger()+'vh', opacity: 0.6}"
+                      >
                       </div>
-                    </template>
-                    <template v-else >
-                      <router-link
-                        v-for="w in works"
-                        :key="w.title"
-                        :to="'/works/'+ (w.title || w.linkedto)"
-                        class="column is-3">
-                        <div class="image has-shadow">
-                          <img v-if="w.preview || w.image"
-                            :src="'/coquelicot-posts/images/'+(w.preview||w.image)">
-                          <img v-else src=".././assets/images/square-logo.jpg">
-                          <span class="prev-label is-size-4">{{(w.title || w.linkedto)}}</span>
-                        </div>
-                        </router-link>
-                    </template>
-                  </div>
+                      <img
+                        alt="preview"
+                        class="animated fadeInDown"
+                        v-show="w.loaded"
+                        v-if="w.preview || w.image"
+                        :src="'/coquelicot-posts/images/'+(w.preview||w.image)"
+                        @load="lo(i)">
+                      <img alt="default" v-else src=".././assets/images/square-logo.jpg">
+                      <span class="prev-label is-size-4">{{(w.title || w.linkedto)}}</span>
+                    </div>
+                  </router-link>
+                </div>
               </div>
             </div>
+          </div>
         </div>
-      </div>
+      </template>
       <div class="hero-foot has-background-coq"
         style="box-shadow: rgba(0, 0, 0, 0.18) 0px -2px 8px;">
         <div class="section" style="padding:0.8rem; text-align:right">
@@ -46,6 +54,9 @@
 </template>
 <script>
 // import work from '@/components/work.vue';
+import Vue from 'vue';
+import Loader from '../components/Loader.vue';
+
 export default {
   name: 'Works',
   props: [],
@@ -53,7 +64,7 @@ export default {
     return {
       html: '',
       works: {},
-      loading: false,
+      loading: true,
     };
   },
   mounted() {
@@ -65,6 +76,12 @@ export default {
     wmount();
   },
   methods: {
+    randomInteger() {
+      return Math.floor(Math.random() * (20 - 10 + 1)) + 10;
+    },
+    lo(i) {
+      Vue.set(this.works[i], 'loaded', true);
+    },
     async start() {
       const date = new Date();
       const t = date.getTime();
@@ -89,6 +106,7 @@ export default {
     },
   },
   components: {
+    Loader,
     // work,
   },
   computed: {
@@ -104,11 +122,13 @@ export default {
 };
 </script>
 <style media="screen">
-
+    .coq-outlined{
+      border: #1a1a1a dashed 1px;
+    }
     .image .prev-label{
-      transition: all 0.3 ease;
+      transition: all 0.1s ease;
       position: absolute;
-      width: 0px;
+      width: auto;
       top: 20px;
       font-family: bodoniflfbold;
       padding: 5px;
@@ -117,6 +137,8 @@ export default {
       background: white;
       border-radius: 0;
       visibility: hidden;
+      opacity: 0;
+      transform-origin: left;
   }
   .prev-label:hover{
     visibility:visible;
@@ -124,14 +146,14 @@ export default {
   }
   .image:hover .prev-label{
     visibility: visible;
-    width:auto;
+    opacity: 1;
   }
 
   div.content img {
-    box-shadow: 2px 3px 3px 0px #00000020;
+    box-shadow: 2px 3px 3px 0 #00000020;
   }
 
   .has-shadow img {
-    box-shadow: 2px 3px 3px 0px #00000057;
+    box-shadow: 2px 3px 3px 0 #00000057;
   }
 </style>

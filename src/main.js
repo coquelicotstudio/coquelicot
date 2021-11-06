@@ -11,7 +11,6 @@ Object.defineProperty(Vue.prototype, 'axios', { value: axios });
 Vue.config.productionTip = false;
 Vue.use(infiniteScroll);
 
-
 // Vue.directive('scroll', {
 //   inserted(el, binding) {
 //     const debounce = (func, wait, immediate) => {

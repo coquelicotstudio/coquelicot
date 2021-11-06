@@ -1,22 +1,28 @@
 <template>
     <section class="hero is-coq is-fullheight" style="height:100vh;">
-      <div class="hero-body" style="margin-top:70px;">
-        <div class="container">
-          <router-link to="/works">
-            <div class="columns is-centered animated fadeInUp">
+      <template v-if="!home_image">
+        <Loader></Loader>
+      </template>
+      <template v-else>
+        <div class="hero-body" style="margin-top:70px;">
+          <div class="container">
+            <router-link to="/works">
+              <div class="columns is-centered animated fadeInUp">
                 <div class="column">
-                    <figure v-if="home_image" class="image">
-                        <img :src="home_image" alt="" style="
+                  <figure v-if="home_image" class="image">
+                    <img :src="home_image" alt="" style="
                         max-height: calc(100vh - 167px);
                         width: auto;
                         margin: auto;"
-                        >
-                    </figure>
+                    >
+                  </figure>
                 </div>
-            </div>
-          </router-link>
+              </div>
+            </router-link>
+          </div>
         </div>
-      </div>
+      </template>
+
       <div class="hero-foot has-background-coq"
         style="box-shadow: rgba(0, 0, 0, 0.18) 0px -2px 8px;">
         <div class="section" style="padding:0.8rem; text-align:right">
@@ -29,6 +35,8 @@
     </section>
 </template>
 <script>
+
+import Loader from '../components/Loader.vue';
 
 export default {
   name: 'Home',
@@ -50,6 +58,7 @@ export default {
       });
   },
   components: {
+    Loader,
 
   },
 };

@@ -15,7 +15,7 @@
                     style="transform: scale(0.5)"
                     >
                     <div class="is-large" style="text-align: center; margin-top: -50px">
-                      Sito in rinnovamento...
+                      Sito in rinnovamento!
                     </div>
                   </figure>
                 </div>

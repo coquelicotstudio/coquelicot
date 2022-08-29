@@ -4,21 +4,22 @@
         <Loader></Loader>
       </template>
       <template v-else>
-        <div class="hero-body" style="margin-top:70px;">
+        <div class="hero-body">
           <div class="container">
-            <router-link to="/works">
-              <div class="columns is-centered animated fadeInUp">
+              <div class="columns is-centered animated fadeIn">
                 <div class="column">
                   <figure v-if="home_image" class="image">
-                    <img :src="home_image" alt="" style="
-                        max-height: calc(100vh - 167px);
-                        width: auto;
-                        margin: auto;"
+                    <img
+                    src="../assets/images/coquelicot.png"
+                    class="magic-title"
+                    style="transform: scale(0.5)"
                     >
+                    <div class="is-large" style="text-align: center; margin-top: -50px">
+                      Sito in rinnovamento...
+                    </div>
                   </figure>
                 </div>
               </div>
-            </router-link>
           </div>
         </div>
       </template>
